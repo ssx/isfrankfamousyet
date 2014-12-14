@@ -17,6 +17,7 @@
 </head>
 <body>
 <div class="site-wrapper">
+	@include("ribbon")
 	<div class="site-wrapper-inner">
 		<div class="cover-container">
 			<div class="masthead clearfix fixed">
