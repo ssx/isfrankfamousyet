@@ -42,14 +42,14 @@ class UpdateFromTwitter extends Command {
 		foreach ($Users as $User)
 		{
 			$connection         		 = new \TwitterOAuth(getenv("TWITTER_CLIENT_ID"),  getenv("TWITTER_CLIENT_SECRET"), $User->oauth_token, $User->oauth_token_secret);
-			$account            		 = $connection->get('account/verify_credentials');
+			$account            		 = $connection->get('users/lookup', array('user_id' => $User->user_id));
 
-			$User->username              = $account->screen_name;
-			$User->fullname              = $account->name;
-			$User->image_url             = $account->profile_image_url;
-			$User->count_statuses        = $account->statuses_count;
-			$User->count_followers       = $account->followers_count;
-			$User->count_following       = $account->friends_count;
+			$User->username              = $account[0]->screen_name;
+			$User->fullname              = $account[0]->name;
+			$User->image_url             = $account[0]->profile_image_url;
+			$User->count_statuses        = $account[0]->statuses_count;
+			$User->count_followers       = $account[0]->followers_count;
+			$User->count_following       = $account[0]->friends_count;
 			if ($User->save())
 			{
 				$this->info("Successfully updated user: ".$User->username);
