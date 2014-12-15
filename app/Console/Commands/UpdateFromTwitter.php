@@ -41,8 +41,6 @@ class UpdateFromTwitter extends Command {
 		$Users = User::all();
 		foreach ($Users as $User)
 		{
-			$this->info("Process update for user: ".$User->username);
-
 			$connection         		 = new \TwitterOAuth(getenv("TWITTER_CLIENT_ID"),  getenv("TWITTER_CLIENT_SECRET"), $User->oauth_token, $User->oauth_token_secret);
 			$account            		 = $connection->get('account/verify_credentials');
 
