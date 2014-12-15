@@ -20,7 +20,7 @@
     @include("ribbon")
     <div class="site-wrapper-inner">
         <div class="cover-container">
-            <div class="masthead clearfix fixed">
+            <div class="masthead clearfix">
                 <div class="inner">
                     <h3 class="masthead-brand">&nbsp;</h3>
                     <nav>
@@ -37,7 +37,7 @@
                     <a href="/auth/twitter/go" class="btn btn-lg btn-primary">Hey, Ho, Let's Go!</a></p>
             </div>
 
-            <div class="mastfoot fixed">
+            <div class="mastfoot">
                 <div class="inner">
                     <p>Created by <a href="https://twitter.com/ssx" target="_blank">@ssx</a> with love for <a href="https://twitter.com/frankdejonge" target="_blank">@frankdejonge</a>.</p>
                 </div>
