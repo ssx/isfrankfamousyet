@@ -44,19 +44,23 @@ class UpdateFromTwitter extends Command {
 			$connection         		 = new \TwitterOAuth(getenv("TWITTER_CLIENT_ID"),  getenv("TWITTER_CLIENT_SECRET"), $User->oauth_token, $User->oauth_token_secret);
 			$account            		 = $connection->get('users/lookup', array('user_id' => $User->user_id));
 
-			$User->username              = $account[0]->screen_name;
-			$User->fullname              = $account[0]->name;
-			$User->image_url             = $account[0]->profile_image_url;
-			$User->count_statuses        = $account[0]->statuses_count;
-			$User->count_followers       = $account[0]->followers_count;
-			$User->count_following       = $account[0]->friends_count;
-			if ($User->save())
-			{
-				$this->info("Successfully updated user: ".$User->username);
-			} else
-			{
-				$this->error("Error updating user: ".$User->username);
-			}
+            if (is_array($account))
+            {
+                $User->username = $account[0]->screen_name;
+                $User->fullname = $account[0]->name;
+                $User->image_url = $account[0]->profile_image_url;
+                $User->count_statuses = $account[0]->statuses_count;
+                $User->count_followers = $account[0]->followers_count;
+                $User->count_following = $account[0]->friends_count;
+                if ($User->save()) {
+                    $this->info("Successfully updated user: " . $User->username);
+                } else {
+                    $this->error("Error updating user: " . $User->username);
+                }
+            } else
+            {
+                $this->error("Bad response from Twitter for user: " . $User->username);
+            }
 		}
 	}
 
