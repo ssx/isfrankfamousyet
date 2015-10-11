@@ -34,6 +34,8 @@
 
             <div class="inner cover">
                 <h1 class="cover-heading">The world famous Famous-o-meter.</h1><br>
+                <p>Help make Frank famous!</p>
+                <p><a href="https://twitter.com/intent/tweet?screen_name=frankdejonge&text=Happy%20birthday!%20%F0%9F%8E%89%F0%9F%8E%89%F0%9F%8E%89" class="twitter-mention-button" data-size="large">Tweet to @frankdejonge</a></p>
 
                 <div class="row">
                     <div class="col-md-12" id="table-holder">
